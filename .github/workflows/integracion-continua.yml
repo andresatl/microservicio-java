@@ -26,5 +26,9 @@ jobs:
       
       - name: Compilacion
         run: |
+          mvn package
+
+      - name: Unit test
+        run: |
           mvn -B test
 
