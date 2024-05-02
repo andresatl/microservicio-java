@@ -26,10 +26,5 @@ jobs:
       
       - name: Compilacion
         run: |
-          mvn package
+          mvn -B test
 
-      - name: Install dependencies
-        run: npm dependencies
-
-      - name: Run unit tests
-        run: npm test
