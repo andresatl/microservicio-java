@@ -63,12 +63,12 @@
 								<limits>
 									<limit>
 										<counter>LINE</counter>
-										<value>COVEREDRATO</value>
-										<minium>0.85</minium>
+										<value>COVEREDRATIO</value>
+										<minimum>0.85</minimum>
 									</limit>
 								</limits>
-							</rule>
-						</rules>
+						</rule>
+					</rules>
 				</configuration>
 			</plugin>
 		</plugins>
