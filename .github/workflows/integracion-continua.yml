@@ -18,14 +18,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install xmlstarlet bc
+        run: |
+            sudo apt-get update && sudo apt-get install -y xmlstarlet
+            sudo apt-get update && sudo apt-get install -y bc 
+
       - name: Setup Java JDK
         uses: actions/setup-java@v4.2.1
         with:
           java-version: '8'
           distribution: 'temurin'
-          
-      - name: Install xmlstarlet
-        run: sudo apt-get update && sudo apt-get install -y xmlstarlet
           
       - name: Compilacion
         run: |
