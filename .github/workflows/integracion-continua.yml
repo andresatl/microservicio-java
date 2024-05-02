@@ -36,6 +36,10 @@ jobs:
       - name: Unit Test
         run: |
           mvn -B package test
+
+      - name: directori
+        run: 
+          cd /target
       
       - name: validacion umbral de codigo
         run: |
