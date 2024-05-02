@@ -37,10 +37,10 @@ jobs:
         run: |
           mvn -B package test
       
-      - name: validacion umbral de codigo
-        run: |
-          coverage=$(xmlstarlet sel -t -v "sum(//counter[@type='LINE']/@covered) div sum(//counter[@type='LINE']/@missed)" target/site/jacoco/jacoco.xml)
-          echo "Code Coverage: $coverage"
+      #- name: validacion umbral de codigo
+        #run: |
+          #coverage=$(xmlstarlet sel -t -v "sum(//counter[@type='LINE']/@covered) div sum(//counter[@type='LINE']/@missed)" target/site/jacoco/jacoco.xml)
+          #echo "Code Coverage: $coverage"
           
       - name: Extraer code coverage
         run: |
