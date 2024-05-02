@@ -35,10 +35,16 @@ jobs:
         run: |
           mvn -B package test
       
-
       - name: validacion umbral de codigo
         run: |
           coverage=$(xmlstarlet sel -t -v "sum(//counter[@type='LINE']/@covered) div sum(//counter[@type='LINE']/@missed)" target/site/jacoco/jacoco.xml)
           echo "Code Coverage: $coverage"
+
+      - name: Romper pipeline por umbral
+        run: |
+          if (( $(echo "$coverage < 0.85" | bc -l) )); then
+          echo "Code coverage is below the threshold of 85%."
+          exit 1
+          fi
 
 
