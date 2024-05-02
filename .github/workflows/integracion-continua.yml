@@ -24,14 +24,17 @@ jobs:
           java-version: '8'
           distribution: 'temurin'
           
+      - name: Install xmlstarlet
+        run: sudo apt-get update && sudo apt-get install -y xmlstarlet
+          
       - name: Compilacion
         run: |
           mvn package
           
-
       - name: Unit Test
         run: |
           mvn -B package test
+      
 
       - name: validacion umbral de codigo
         run: |
