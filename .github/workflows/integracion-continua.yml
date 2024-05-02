@@ -32,6 +32,10 @@ jobs:
       - name: Compilacion
         run: |
           mvn package
+
+      - name: Display contents of jacoco.xml
+        run: cat target/site/jacoco/jacoco.xml
+
           
       - name: Unit Test
         run: |
