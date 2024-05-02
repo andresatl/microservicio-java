@@ -32,14 +32,6 @@ jobs:
       - name: Compilacion
         run: |
           mvn package
-
-      - name: Display contents of jacoco.xml
-        run: cat target/site/jacoco/jacoco.xml
-
-
-      - name: Display contents of jacoco.xml
-        run: cat target/site/jacoco/jacoco.xml
-
           
       - name: Unit Test
         run: |
@@ -56,5 +48,8 @@ jobs:
           echo "Code coverage is below the threshold of 85%."
           exit 1
           fi
+
+      - name: Display contents of jacoco.xml
+         run: cat target/site/jacoco/jacoco.xml
 
 
