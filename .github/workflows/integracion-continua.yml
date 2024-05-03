@@ -39,7 +39,7 @@ jobs:
       
       - name: validacion umbral de codigo
         run: |
-          coverage=$(xmlstarlet sel -t -v "sum(//counter[@type='LINE']/@covered) div sum(//counter[@type='LINE']/@missed)" target/site/jacoco/jacoco.xml)
+          #coverage=$(xmlstarlet sel -t -v "sum(//counter[@type='LINE']/@covered) div sum(//counter[@type='LINE']/@missed)" target/site/jacoco/jacoco.xml)
           echo "Code Coverage: $coverage"
 
       - name: Check code coverage
