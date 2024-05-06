@@ -44,6 +44,7 @@ jobs:
 
       - name: Check code coverage
         run: |
+          echo "Checking coverage: $coverage"
           if (( $(echo "$coverage > 0.85" | bc) )); then
             echo "Code coverage is below the threshold of 85%."
             exit 1
