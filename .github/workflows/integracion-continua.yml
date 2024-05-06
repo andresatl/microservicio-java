@@ -49,8 +49,9 @@ jobs:
           echo "total_coverage=$TOTAL_COVERAGE" >> $GITHUB_OUTPUT
         # echo "::set-output name=total_coverage::$TOTAL_COVERAGE"
         
-      #- name: Print total coverage
-        #run: echo "Total JaCoCo coverage: ${{ steps.extract_coverage.outputs.total_coverage }}%"
+      - name: Print total coverage
+        run: |
+          echo "Total JaCoCo coverage: $TOTAL_COVERAGE" 
       
      # - name: Romper pipeline
         #run: |
