@@ -38,7 +38,7 @@ jobs:
           mvn -B package test
 
       - name: generar reporte jacoco
-        run: mvn JaCoCo report
+        run: mvn jacoco:report
       
       #- name: validacion umbral de codigo
         #run: |
