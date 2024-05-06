@@ -42,8 +42,8 @@ jobs:
 
       - name: Check JaCoCo coverage
         run: |
-          COVERAGE=$(awk -F '"' '/^<counter type="INSTRUCTION"/{print $4}' target/site/jacoco/jacoco.xml)
-          echo "JaCoCo coverage: $COVERAGE"
+          coverage=$(xmlstarlet sel -t -v "sum(//counter[@type='LINE']/@covered) div sum(//counter[@type='LINE']/@missed)" target/site/jacoco/jacoco.xml)
+          echo "Code Coverage: $coverage"
       
      # - name: Romper pipeline
         #run: |
