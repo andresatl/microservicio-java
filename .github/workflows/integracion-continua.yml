@@ -43,6 +43,7 @@ jobs:
       - name: Check JaCoCo coverage
         run: |
           coverage=$(xmlstarlet sel -t -v "sum(//counter[@type='LINE']/@covered) div sum(//counter[@type='LINE']/@missed)" target/site/jacoco/jacoco.xml)
+          coverage_percent=$(echo "$coverage * 100" | bc)
           echo "Code Coverage: $coverage"
       
      # - name: Romper pipeline
