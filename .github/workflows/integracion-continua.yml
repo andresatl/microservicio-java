@@ -33,12 +33,12 @@ jobs:
         run: |
           mvn package
           
-      - name: Unit Test
+      - name: Unit Test with Jacoco
         run: |
-          mvn -B package test
+          mvn -B clean test jacoco:report
 
-      - name: generar reporte jacoco
-        run: mvn jacoco:report
+      #- name: generar reporte jacoco
+        #run: mvn jacoco:report
 
       - name: Check JaCoCo coverage
         run: |
