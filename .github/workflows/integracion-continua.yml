@@ -51,7 +51,7 @@ jobs:
         
       - name: Print total coverage
         run: |
-          echo "Total JaCoCo coverage: $TOTAL_COVERAGE" 
+          echo "Total JaCoCo coverage: $TOTAL_LINES" 
       
      # - name: Romper pipeline
         #run: |
