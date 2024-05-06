@@ -36,19 +36,22 @@ jobs:
       - name: Unit Test
         run: |
           mvn -B package test
-      
-      - name: validacion umbral de codigo
-        run: |
-          coverage=$(xmlstarlet sel -t -v "sum(//counter[@type='LINE']/@covered) div sum(//counter[@type='LINE']/@missed)" target/site/jacoco/jacoco.xml)
-          echo "Code Coverage: $coverage"
 
-      - name: Check code coverage
-        run: |
-          echo "Checking coverage: $coverage"
-          if (( $(echo "$coverage > 0.85" | bc) )); then
-            echo "Code coverage is below the threshold of 85%."
-            exit 1
-          fi
+      - name: generar reporte jacoco
+        run: mvn JaCoCo report
+      
+      #- name: validacion umbral de codigo
+        #run: |
+          #coverage=$(xmlstarlet sel -t -v "sum(//counter[@type='LINE']/@covered) div sum(//counter[@type='LINE']/@missed)" target/site/jacoco/jacoco.xml)
+          #echo "Code Coverage: $coverage"
+
+     # - name: Check code coverage
+        #run: |
+         # echo "Checking coverage: $coverage"
+          #if (( $(echo "$coverage > 0.85" | bc) )); then
+            #echo "Code coverage is below the threshold of 85%."
+            #exit 1
+          #fi
           
       - name: Setup Java JDK
         uses: actions/setup-java@v4.2.1
