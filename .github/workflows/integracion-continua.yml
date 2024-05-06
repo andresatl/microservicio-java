@@ -42,7 +42,7 @@ jobs:
 
       - name: Check JaCoCo coverage
         run: |
-          COVERAGE=$(awk -F '/^instruction/{print $3}' target/site/jacoco/jacoco.xml)
+          COVERAGE=$(awk -F '"' '/^instruction/{print $4}' target/site/jacoco/jacoco.xml)
           if (( $(echo "$COVERAGE < 85" | bc -l) )); then
             echo "JaCoCo coverage is below 85%"
             exit 1
