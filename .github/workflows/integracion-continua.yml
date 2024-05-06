@@ -49,7 +49,7 @@ jobs:
           coverage_report_title: JaCoCo
           github_token: ${{ secrets.GITHUB_TOKEN }}
           skip_check_run: false
-          minimum_coverage: 72
+          minimum_coverage: 85
           fail_below_threshold: true
           publish_only_summary: false
           
@@ -58,11 +58,6 @@ jobs:
         with:
           name: jacoco-report
           path: target/site/jacoco
-      
-      #- name: validacion umbral de codigo
-        #run: |
-          #coverage=$(xmlstarlet sel -t -v "sum(//counter[@type='LINE']/@covered) div sum(//counter[@type='LINE']/@missed)" target/site/jacoco/jacoco.xml)
-          #echo "Code Coverage: $coverage"
           
       - name: Setup Java JDK
         uses: actions/setup-java@v4.2.1
