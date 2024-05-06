@@ -46,8 +46,9 @@ jobs:
           TOTAL_MISSED=$(xmlstarlet sel -t -v "sum(//counter[@type='INSTRUCTION']/@missed)" target/site/jacoco/jacoco.xml)
           TOTAL_LINES=$((TOTAL_COVERED + TOTAL_MISSED))
           TOTAL_COVERAGE=$(awk "BEGIN { printf \"%.2f\", ($TOTAL_COVERED / $TOTAL_LINES) * 100 }")
-          echo "::set-output name=total_coverage::$TOTAL_COVERAGE"
-          
+          echo "total_coverage=$TOTAL_COVERAGE" >> $GITHUB_OUTPUT
+        # echo "::set-output name=total_coverage::$TOTAL_COVERAGE"
+        
       #- name: Print total coverage
         #run: echo "Total JaCoCo coverage: ${{ steps.extract_coverage.outputs.total_coverage }}%"
       
