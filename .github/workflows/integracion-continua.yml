@@ -73,13 +73,13 @@ jobs:
             -Dsonar.organization=andresatl \
             -Dsonar.projectKey=andresatl_microservicio-java
             
-      #- name: SonarQube Quality Gate Check
-        #env:
-           #SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
-           #SONAR_HOST_URL: ${{ secrets.https://sonarcloud.io }} #OPTIONAL
-        #uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
-        #with:
-          #scanMetadataReportFile: target/sonar/report-task.txt
+      - name: SonarQube Quality Gate Check
+        env:
+           SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
+           SONAR_HOST_URL: ${{ secrets.https://sonarcloud.io }} #OPTIONAL
+        uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
+        with:
+          scanMetadataReportFile: target/sonar/report-task.txt
         
           
 
