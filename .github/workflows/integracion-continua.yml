@@ -90,6 +90,10 @@ jobs:
       - name: Docker Build 
         run: |
           docker build -t andresatl/microservicio-java:latest .
+
+      - name: Docker Push 
+        run: |
+          docker push andresatl/microservicio-java:latest
         
           
 
