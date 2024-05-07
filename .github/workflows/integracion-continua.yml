@@ -31,9 +31,9 @@ jobs:
         run: |
           mvn package
           
-      - name: Unit Test 
+      - name: Unit Test JaCoCo
         run: |
-          mvn clean test 
+          ./gradlew clean test jacocoTestReport
 
       - name: Generate report jacoco
         run: mvn jacoco:report
