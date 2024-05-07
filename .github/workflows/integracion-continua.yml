@@ -83,6 +83,10 @@ jobs:
         with:
           username: andresatl
           password: ${{ secrets.DOCKER_PASS }}
+
+      - name: Docker Build 
+        run: |
+          docker build -t andresatl/microservicio-java:latest
         
           
 
