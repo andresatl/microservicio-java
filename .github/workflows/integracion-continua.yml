@@ -33,7 +33,7 @@ jobs:
           
       - name: Unit Test JaCoCo
         run: |
-          mvn clean test jacocoTestReport
+          mvn -B clean test
 
       - name: Generate report jacoco
         run: mvn jacoco:report
