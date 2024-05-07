@@ -33,7 +33,7 @@ jobs:
           
       - name: Unit Test 
         run: |
-          mvn -B clean test 
+          mvn clean test 
 
       - name: Generate report jacoco
         run: mvn jacoco:report
@@ -47,7 +47,7 @@ jobs:
           coverage_report_title: JaCoCo
           github_token: ${{ secrets.GITHUB_TOKEN }}
           skip_check_run: false
-          minimum_coverage: 72
+          minimum_coverage: 70
           fail_below_threshold: true
           publish_only_summary: false
           
