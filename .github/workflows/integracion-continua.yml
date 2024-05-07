@@ -33,7 +33,7 @@ jobs:
           
       - name: Unit Test JaCoCo
         run: |
-          ./gradlew clean test jacocoTestReport
+          mvn clean test jacocoTestReport
 
       - name: Generate report jacoco
         run: mvn jacoco:report
