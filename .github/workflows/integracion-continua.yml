@@ -110,10 +110,10 @@ jobs:
             C:\apache-jmeter-5.6.3\bin\jmeter.bat -n -t C:\files\test_plan.jmx -l C:\files\test-results.jtl
 
         - name: Upload test results
-          uses: actions/upload-artifact@v2
+          uses: actions/upload-artifact@v4
           with:
-            name: jmeter-results
-            path: results.jtl
+            name: C:\files\
+            path: test-results.jtl
           
           
 
