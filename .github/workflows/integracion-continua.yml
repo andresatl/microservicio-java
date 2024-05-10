@@ -104,7 +104,27 @@ jobs:
         - name: Despliegue local
           run: |
             kubectl apply -f deploy.yaml
+
+  jmeter_test:
+    runs-on: ubuntu-lastest 
+
+    steps:
+    - name: Download Jmeter
+      run: |
+        wget -q https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.4.1.tgz
+        tar -xf apache-jmeter-5.4.1.tgz
         
+    - name: Run JMeter tests
+      run: |
+        cd apache-jmeter-5.4.1/bin
+        ./jmeter -n -t path/to/your/test-plan.jmx -l test-results.jtl
+      
+    - name: Upload test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: apache-jmeter-5.4.1/bin/test-results.jtl
+    
           
 
           
