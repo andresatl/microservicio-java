@@ -16,7 +16,6 @@ public class GreetingController {
 
 	@RequestMapping("/greeting")
 	public @ResponseBody String greeting() {
-		System.out.println("Hola")
 		return service.greet();
 	}
 
