@@ -79,7 +79,7 @@ jobs:
           scanMetadataReportFile: target/sonar/report-task.txt
 
       - name: Docker Login
-        uses: docker/login-action@v4
+        uses: docker/login-action@v3.1.0
         with:
           username: andresatl
           password: ${{ secrets.DOCKER_PASS }}
@@ -100,7 +100,7 @@ jobs:
       runs-on: self-hosted
       steps:
         - name: Clonacion de repositorio para deploy
-          uses: actions/checkout@v3
+          uses: actions/checkout@v4
         - name: Despliegue local
           run: |
             kubectl apply -f deploy.yaml
