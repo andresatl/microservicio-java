@@ -104,6 +104,12 @@ jobs:
         - name: Despliegue local
           run: |
             kubectl apply -f deploy.yaml
+
+        - name: Setear puerto Kubernets
+       
+          run: |
+            $PORT = kubectl get svc service-microservicio-java -o=jsonpath='{.spec.ports[0].nodePort}'
+            Write-Host "Puerto : $PORT"
       
         - name: Run JMeter tests
           run: |
