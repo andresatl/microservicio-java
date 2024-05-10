@@ -109,22 +109,11 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    
-     - name: Set up Java
-       uses: actions/setup-java@v4
-       with:
-          java-version: '11' 
           
-     - name: Download Jmeter
+     - name: Download and extract JMeter
        run: |
-      
-        $jmeterUrl = "https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.4.3.zip"
-        $outputDir = "$env:RUNNER_TEMP\jmeter"
-        New-Item -ItemType Directory -Force -Path $outputDir
-        Invoke-WebRequest -Uri $jmeterUrl -OutFile "$outputDir\jmeter.zip"
-        Expand-Archive -Path "$outputDir\jmeter.zip" -DestinationPath "$outputDir"
-        $env:JMETER_HOME = "$outputDir\apache-jmeter-5.4.3"
-        Write-Output "JMeter downloaded and extracted to $env:JMETER_HOME"
+         Invoke-WebRequest -Uri "https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.1.zip" -OutFile "jmeter.zip"
+         Expand-Archive -Path "jmeter.zip" -DestinationPath "jmeter"
 
      - name: set JMETER_HOME
        run: |
