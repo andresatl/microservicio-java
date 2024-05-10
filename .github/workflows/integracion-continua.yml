@@ -117,7 +117,7 @@ jobs:
         
      - name: Run JMeter tests
        run: |
-        cd apache-jmeter-5.6.3/bin
+        cd C:\apache-jmeter-5.6.3\apache-jmeter-5.6.3\bin
         ./jmeter -n -t path/to/your/test-plan.jmx -l test-results.jtl
       
      - name: Upload Test Results
