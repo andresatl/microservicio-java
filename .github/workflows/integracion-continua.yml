@@ -109,21 +109,37 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - name: Download Jmeter
-      run: |
-        wget -q https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.4.1.tgz
-        tar -xf apache-jmeter-5.4.1.tgz
+    
+     - name: Set up Java
+       uses: actions/setup-java@v4
+       with:
+          java-version: '11' 
+          
+     - name: Download Jmeter
+       run: |
+      
+        $jmeterUrl = "https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.4.3.zip"
+        $outputDir = "$env:RUNNER_TEMP\jmeter"
+        New-Item -ItemType Directory -Force -Path $outputDir
+        Invoke-WebRequest -Uri $jmeterUrl -OutFile "$outputDir\jmeter.zip"
+        Expand-Archive -Path "$outputDir\jmeter.zip" -DestinationPath "$outputDir"
+        $env:JMETER_HOME = "$outputDir\apache-jmeter-5.4.3"
+        Write-Output "JMeter downloaded and extracted to $env:JMETER_HOME"
+
+     - name: set JMETER_HOME
+       run: |
+        echo "::set-env name=JMETER_HOME::$env:JMETER_HOME"
         
-    - name: Run JMeter tests
-      run: |
+     - name: Run JMeter tests
+       run: |
         cd apache-jmeter-5.4.1/bin
         ./jmeter -n -t path/to/your/test-plan.jmx -l test-results.jtl
       
-    - name: Upload test results
-      uses: actions/upload-artifact@v2
-      with:
-        name: test-results
-        path: apache-jmeter-5.4.1/bin/test-results.jtl
+     - name: Upload Test Results
+       uses: actions/upload-artifact@v4
+       with:
+          name: jmeter-results
+          path: results.jtl
     
           
 
