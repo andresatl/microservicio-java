@@ -107,7 +107,7 @@ jobs:
 
   pruebasjmeter:
 
-      needs: deploy
+      needs: deploy1
       runs-on: self-hosted
       steps:
   
